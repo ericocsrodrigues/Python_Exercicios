@@ -7,13 +7,52 @@ D) Uma lista de pessoas com idade acima da média
 """
 
 from BibliotecaCm7.cores import cor
+from BibliotecaCm7.menu import menu, lin
+
+
+menu('Cadastro')
+
 pessoas = {}
 listagem = []
+mulheres = []
+cont = soma_idade = 0
 opção = ' '
 while True:
     pessoas['nome'] = str(input('Nome: ')).strip().title()
-    sexo = str(input(f'Sexo {cor("vermelho")}[M/F]: ')).strip()[0]
-    if sexo not in 'FfMm':
-        print(f'{cor("vermelho")}Valor inválido!{cor("zerar")} Digite apenas \033[M/F]')
-        pessoas['sexo'] = str(input('Sexo [M/F]: ')).strip()[0]
+    sexo = str(input(f'Sexo [M/F]: ')).strip()[0].upper()
+    while sexo not in 'FfMm':
+        print(f'{cor("vermelho")}Valor inválido!{cor("zerar")} Digite apenas {cor("azul")}[M/F]{cor("zerar")}')
+        sexo = str(input(f'Sexo [M/F]: ')).strip()[0].upper()
+    pessoas['sexo'] = sexo
+    pessoas['idade'] = int(input('Idade: '))
+    cont += 1
+    soma_idade += pessoas['idade']
+    listagem.append(pessoas.copy())
+    pessoas.clear()
+    x = str(input('CONTINUAR [S/N]: ')).strip()[0]
+    while x not in 'SsNn':
+        print(f'{cor("negro")}Valor inválido!{cor("zerar")} Digite apenas {cor("azul")}[S/N]{cor("zerar")}')
+        x = str(input('CONTINUAR [S/N]: ')).strip()[0]
+    opção = x
+    if opção in 'Nn':
+        break
+media_idade = soma_idade / cont
+lin()
+print(f'No total foram cadastrados {cont} pessoas.')
+lin()
+print(f'A média das idades é {media_idade} anos')
+lin()
+print('A listagem de mulher cadastradas é:', end=' ')
+for i, v in enumerate(listagem):
+    if listagem[i]['sexo'] == 'F':
+        print(f"{listagem[i]['nome']}", end=' ')
+print('')
+lin()
+print('A listagem de pessoas com idade acimada média é:', end=' ')
+for i, v in enumerate(listagem):
+    if listagem[i]['idade'] > media_idade:
+        print(f'{listagem[i]["nome"]}', end=' ')
+print()
+print(listagem)
+
 
