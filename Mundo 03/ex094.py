@@ -1,5 +1,6 @@
 """
-Exercício Python 094: Crie um programa que leia nome, sexo e idade de várias pessoas, guardando os dados de cada pessoa em um dicionário e todos os dicionários em uma lista. No final, mostre:
+Exercício Python 094: Crie um programa que leia nome, sexo e idade de várias pessoas, guardando os dados de cada pessoa
+em um dicionário e todos os dicionários em uma lista. No final, mostre:
 A) Quantas pessoas foram cadastradas
 B) A média de idade
 C) Uma lista com as mulheres
@@ -9,14 +10,12 @@ D) Uma lista de pessoas com idade acima da média
 from BibliotecaCm7.cores import cor
 from BibliotecaCm7.menu import menu, lin
 
-
 menu('Cadastro')
 
 pessoas = {}
 listagem = []
-mulheres = []
 cont = soma_idade = 0
-opção = ' '
+escolha = ' '
 while True:
     pessoas['nome'] = str(input('Nome: ')).strip().title()
     sexo = str(input(f'Sexo [M/F]: ')).strip()[0].upper()
@@ -33,8 +32,8 @@ while True:
     while x not in 'SsNn':
         print(f'{cor("negro")}Valor inválido!{cor("zerar")} Digite apenas {cor("azul")}[S/N]{cor("zerar")}')
         x = str(input('CONTINUAR [S/N]: ')).strip()[0]
-    opção = x
-    if opção in 'Nn':
+    escolha = x
+    if escolha in 'Nn':
         break
 media_idade = soma_idade / cont
 lin()
@@ -54,5 +53,4 @@ for i, v in enumerate(listagem):
         print(f'{listagem[i]["nome"]}', end=' ')
 print()
 print(listagem)
-
 
