@@ -42,8 +42,8 @@ lin()
 print(f'A média das idades é {media_idade} anos')
 lin()
 print('A listagem de mulher cadastradas é:', end=' ')
-for i, v in enumerate(listagem):
-    if listagem[i]['sexo'] == 'F':
+for i in listagem:
+    if i['sexo'] == 'F':
         print(f"{listagem[i]['nome']}", end=' ')
 print('')
 lin()

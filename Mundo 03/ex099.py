@@ -6,16 +6,18 @@ from time import sleep
 from BibliotecaCm7.menu import menu, lin
 
 
-def maior(*num):
+def maior(*args):
     print(f'Analisando os valores informados...')
-    sleep(1.5)
-    for x in num:
+    sleep(2)
+    for x in args:
         print(f'{x}', end=' ')
         sleep(0.5)
-    print(f'Foram informados {len(num)} valores.')
-    print(f'O maior número informado foi: {max(num)}')
+    print(f'Foram informados {len(args)} valores.')
+    print(f'O maior número informado foi: {max(args)}')
 
-
+lin()
 maior(1, 2, 4, 76, 13)
+lin()
+maior(1, 4, 6, 43, 56, 45)
 
 
