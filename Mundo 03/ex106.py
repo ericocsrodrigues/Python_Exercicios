@@ -36,8 +36,7 @@ while True:
     titulo("SISTEMA DE AJUDA PYTHONICA", 6)
     comando = str(input("Função ou Biblioteca > "))
     if comando.upper() == 'FIM':
-        print('>>> FIM <<<<')
-        sleep(1)
+        titulo('>>>Até Logo!<<<', 4)
         break
     else:
         ajuda(comando)
