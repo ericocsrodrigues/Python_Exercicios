@@ -1,24 +1,24 @@
 from ex115.lib.interface import *
 
 
-def arquivoExiste(nome):
-    try:
-        a = open(nome, 'rt')
-        a.close()
-    except FileNotFoundError:
+def arquivoExiste(nome):  # Função para verificar se o arquivo existe
+    try:  # Função interna do Python para tratamentos de erro que vai tentar fazer algo
+        a = open(nome, 'rt')  # Open tenta abrir o arquivo com o parâmteros 'rt' que é reed(r) e text(t)
+        a.close()  # Fecha o arquvio
+    except FileNotFoundError:  # Função interna do Python para tratamentos de erro que vai fazer algo caso aconteça erro
         return False
     else:
         return True
 
 
-def criarArquivo(nome):
+def criarArquivo(nome):  # Função para criar um arquivo .txt
     try:
-        a = open(nome, 'wt+')
+        a = open(nome, 'wt+')  # Abre um arquivo de texto para escrever nele. 'wt+' write text o + cria caso não exista
         a.close()
     except:
         print('Houve um error na criação do arquivo!')
     else:
-        print(f'Arquivo criado com sucesso')
+        print(f'Arquivo {nome} criado com sucesso')
 
 
 def lerArquivo(nome):
@@ -49,12 +49,3 @@ def cadastrar(arq, nome='DESCONHECIDO', idade=0):
         else:
             print(f'Novo registro de {nome} adicionado.')
             a.close()
-
-
-
-
-
-
-
-
-
